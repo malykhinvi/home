@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Vasily Malykhin, Software Engineer, React, JavaScript, TypeScript"
+      content="Vasily Malykhin, Software Engineer, Frontend"
     />
     <title>Vasily Malykhin</title>
     <style>
+      :root {
+        --count: 13;
+        --z: 50px;
+        --duration: 5s;
+      }
       * {
         box-sizing: border-box;
       }
@@ -43,6 +48,7 @@
       }
       p {
         line-height: 1.3;
+        margin-bottom: 0;
       }
       ul {
         list-style: none;
@@ -50,7 +56,6 @@
       }
       li {
         line-height: 22px;
-        color: #666;
       }
       .icon {
         vertical-align: text-bottom;
@@ -84,6 +89,53 @@
         right: -50px;
         top: -50px;
       }
+      .contacts {
+        color: #666;
+      }
+      .skills {
+        overflow: hidden;
+        margin-bottom: 1rem;
+      }
+      .skills-revolver {
+        margin-top: 0;
+        margin-bottom: 0;
+        line-height: 1.3;
+        color: #333;
+        height: 22px;
+        position: relative;
+        transform-style: preserve-3d;
+        animation: rotate calc(var(--duration) * var(--count)) infinite reverse;
+        animation-timing-function: steps(var(--count), start);
+      }
+      .skills li {
+        position: absolute;
+        width: 100%;
+        backface-visibility: hidden;
+        background: #f7f7f7;
+        animation: blink var(--duration) infinite
+      }
+      @keyframes rotate {
+        from {
+          transform: rotateX(0);
+        }
+        to {
+          transform: rotateX(360deg);
+        }
+      }
+      @keyframes blink {
+        0% {
+          color: #f7f7f7
+        }
+        10% {
+          color: #333;
+        }
+        90% {
+          color: #333;
+        }
+        100% {
+          color: #f7f7f7
+        }
+      }
     </style>
   </head>
   <body>
@@ -93,11 +145,26 @@
         <img src="/photo.jpeg" alt="Photo" height="265" width="265" />
         <h1>Vasily Malykhin</h1>
         <p>
-          Software Engineer
-          <br />
-          React, JavaScript, TypeScript
+          Software Engineer at Glovo
         </p>
-        <ul>
+        <div class="skills">
+          <ul class="skills-revolver">
+            <li style="transform: rotateX(calc(360deg / var(--count) * 0)) translateZ(var(--z))">Frontend</li>
+            <li style="transform: rotateX(calc(360deg / var(--count) * 1)) translateZ(var(--z))">JavaScript</li>
+            <li style="transform: rotateX(calc(360deg / var(--count) * 2)) translateZ(var(--z))">TypeScript</li>
+            <li style="transform: rotateX(calc(360deg / var(--count) * 3)) translateZ(var(--z))">React</li>
+            <li style="transform: rotateX(calc(360deg / var(--count) * 4)) translateZ(var(--z))">Vue</li>
+            <li style="transform: rotateX(calc(360deg / var(--count) * 5)) translateZ(var(--z))">CSS</li>
+            <li style="transform: rotateX(calc(360deg / var(--count) * 6)) translateZ(var(--z))">Accessibility</li>
+            <li style="transform: rotateX(calc(360deg / var(--count) * 7)) translateZ(var(--z))">Web performance</li>
+            <li style="transform: rotateX(calc(360deg / var(--count) * 8)) translateZ(var(--z))">Cypress</li>
+            <li style="transform: rotateX(calc(360deg / var(--count) * 9)) translateZ(var(--z))">Jest</li>
+            <li style="transform: rotateX(calc(360deg / var(--count) * 10)) translateZ(var(--z))">Node.js</li>
+            <li style="transform: rotateX(calc(360deg / var(--count) * 11)) translateZ(var(--z))">Webpack</li>
+            <li style="transform: rotateX(calc(360deg / var(--count) * 12)) translateZ(var(--z))">Lerna</li>
+          </ul>
+        </div>
+        <ul class="contacts">
           <li>
             <svg
               class="icon"
